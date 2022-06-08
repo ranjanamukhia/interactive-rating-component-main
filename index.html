@@ -7,43 +7,252 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
   <title>Frontend Mentor | Interactive rating component</title>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+    $('.rating-numbers-images').hover(function(){
+        $(this).prev().toggleClass('grey-bg-rating');
+    });
+});
+  </script>
+
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    /* .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); } */
+    
+    
+      html,
+      body { height: 100%;
+        background-color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+    .main-block{
+    
+      height: 350px;
+      width: 350px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 2px;
+      border-radius: 5px;
+      background-color: rgb(34, 55, 69);
+    }
+
+    .secondDiv{
+      height: 350px;
+      width: 350px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 2px;
+      border-radius: 5px;
+      background-color: rgb(34, 55, 69);
+
+    }
+
+    .heading-text{
+      color: white;
+    }
+    .star-image{
+      display:flex;
+      margin-right: auto;
+      margin-left: 20px;
+      width: 40px;
+      height: 40px;
+      border-radius: 100%;
+      background-color: rgb(59, 73, 83);
+      justify-content: center;
+      align-items: center;
+      
+    }
+    
+
+    .heading-text{
+      width: 300px;
+      text-align: justify;
+   text-justify: inter-word;
+    }
+    .rating-numbers{
+      margin-top: 10px;
+      width: 300px;height:50px;
+      display: flex;
+      justify-content: space-between;
+     
+      
+    }
+    .rating-numbers-images{
+      height: 40px;
+      width: 40px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 100%;
+      text-align: center;
+      color: grey;
+      display: flex;
+      background-color: rgb(59, 73, 83);
+      margin-left: 5px;
+      margin-right: 5px;
+      cursor: pointer;
+      
+      
+    }
+    button{
+      background-color: rgb(245, 123, 30);
+      color: white;
+      width: 300px;
+      height: 40px;;
+      border-radius: 50px;
+      margin-top:15px;
+      border: 1px;
+      border-color: rgb(245, 123, 30);
+      cursor: pointer;
+
+
+    } 
+    button:hover{
+      background-color: white;
+      color: orange;
+    }
+
+    .hide{
+        display:flex;
+        flex-direction: column;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        width: 350px;
+        height: 350px;
+        border-radius: 10px;
+        background-color: rgb(52, 50, 50);
+    }
+    .selected-rating{
+      display: flex;
+     
+      align-items: center;
+
+      width: 200px;
+      height: 30px;
+      border-radius: 10px;
+      background-color: rgb(52, 50, 50);
+    }
+
+    .first-line , #rating{
+      color:rgb(245, 123, 30);
+      font-size: medium;
+      margin-right: -15px;
+      margin-left: 18px;
+    }
+
+    .grey-bg-rating{
+      background-color: rgb(186, 182, 182);
+    }
+
+   
   </style>
 </head>
 <body>
 
-  <!-- Rating state start -->
+  <div class="main-block" id="main-block">
+    <div class="star-image">
+      <img src="images/icon-star.svg">
 
-  How did we do?
-
-  Please let us know how we did with your support request. All feedback is appreciated 
-  to help us improve our offering!
-
-  1 2 3 4 5
-
-  Submit
-
-  <!-- Rating state end -->
-
-  <!-- Thank you state start -->
-
-  You selected <!-- Add rating here --> out of 5
-
-  Thank you!
-
-  We appreciate you taking the time to give a rating. If you ever need more support, 
-  don’t hesitate to get in touch!
-
-  <!-- Thank you state end -->
+    </div>
+    <div class="heading-text">
+      <h3>How did we do ?</h3>
+      <p>Please let us kow how we did with your support.All feedback is appreciated to help us improve our offering!</p>
+    </div>
+    <div class="rating-numbers" >
+      <div class="rating-numbers-images" id="rating-1">1</div>
+      <div class="rating-numbers-images" id="rating-2">2</div>
+      <div class="rating-numbers-images" id="rating-3">3</div>
+      <div class="rating-numbers-images" id="rating-4">4</div>
+      <div class="rating-numbers-images" id="rating-5">5</div>
+  </div>
+  <button id="btn">SUBMIT</button>
 
   
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
   </div>
+
+  <div class="hide" id="secondDiv">
+    <div class="thank-you-image">
+      <img src="images/illustration-thank-you.svg">
+    </div>
+      <div class="selected-rating">
+       <p class="first-line">You selected   <p id="rating"></p></p><p class="first-line"> out of 5</p>
+      </div>
+      <div>
+        <h2 style="color: white; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif";font-size:40px;>Thank You</h2>
+      </div>
+      <div style="color:rgb(186, 182, 182);width:300px;text-align: justify;
+      text-justify: inter-word; font-size: 15px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+        <p>We appreciate you taking the time to give a rating .If you ever need support, don't hesitate to get in touch. </p>
+      </div>
+     
+
+    
+</div>
+
+
+    <script>
+
+      var selectedDiv = "";
+      var x = document.getElementsByClassName('rating-numbers-images')
+     
+      for (var i = 0; i < x.length; i++) {
+       // x[i].style.cursor = 'pointer';
+          x[i].addEventListener("click", function(){
+            
+            
+          var selectedEl = document.querySelector(".selected");
+          
+          if(selectedEl){
+            
+          
+              selectedEl.classList.remove("selected");
+             
+             
+          }
+          this.style.backgroundColor = 'rgb(245, 123, 30)';
+          this.classList.add("selected");
+         
+              
+          }, false);
+      }
+      document.getElementById('btn').style.cursor ='pointer';
+
+      document.getElementById('btn').addEventListener('click',function(){
+       
+          
+          var selectedEl = document.querySelector(".selected");
+          
+          if(selectedEl){
+          document.getElementById("rating").innerHTML=selectedEl.innerText; 
+          
+
+          document.getElementById("secondDiv").style.display = "flex";
+          document.getElementById("main-block").style.display = "none";
+    
+          }
+          else{
+              alert('please choose an option');
+              document.getElementById("secondDiv").style.display = "none";
+          }
+        }
+        )
+
+    </script>
+  
+  
+  
+
+ 
 </body>
 </html>
